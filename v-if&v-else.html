@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-if&v-show&v-else</h1>
+</hr>
+<div id="app">
+    <!-- v-show不支持<template>语法 -->
+    <!-- <div v-show="isLogin">你好</div> -->
+   <template v-if="ok">
+    <h1>深渊</h1>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+   </template>
+   <template v-if="ok1">
+    <h1>地球</h1>
+    <p>Paragraph A</p>
+    <p>Paragraph B</p>
+   </template>
+   <template v-if="ok2">
+    <h1>噩梦</h1>
+    <p>Paragraph 3</p>
+    <p>Paragraph 4</p>
+   </template>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+      el:"#app",
+      data:{
+        //   isLogin:true
+        ok:true,
+        ok1:true,
+        ok2:false
+      }
+  })
+</script>
+</body>
+</html>

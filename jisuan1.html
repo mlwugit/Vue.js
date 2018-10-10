@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算1
+    </title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <style>
+    span{
+        background-color: blue;
+        width:80px;
+        display:inline-block;
+    }    
+    </style>
+</head>
+<body>
+   <h1>计算</h1> 
+   <hr>
+   <div id="test">
+    <div v-for="(index,item) in items">
+        <div>
+            <span>{{item.name}}</span> 
+          <input type="text" v-model="item.value" lazy number>
+        </div>
+    </div>
+    计算后：{{total}}
+   </div>
+   <script type="text/javascript">
+   Vue.config.debug=true
+   var vm=new Vue({
+       el:'#test',
+       data:{
+           items:[{
+                   name:'手链',
+                   value:20
+               },{
+                   name:'耳坠',
+                   value:35
+               }, {
+                   name:'头绳',
+                   value:10
+               }]
+       },
+       computed:{
+           total:function(){
+               self = this;
+               var tmp = 0;
+               for(var i=0;i<self.items.length;++i){
+                   tmp=tmp+self.items[i].value;
+               }
+               return tmp;
+           }
+       }
+   })
+   </script>
+</body>
+</html>

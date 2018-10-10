@@ -1,0 +1,28 @@
+ <html>
+     <head>
+            <script type="text/javascript" src="../assets/js/vue.js"></script>
+     </head>
+ <body>
+ <div id="app">
+ <h3>debounce(键盘反应延迟)</h3>
+    <input v-model="msg" @keyup="onKeyup ">
+    {{msg}}
+    <br> 
+ </div>
+     <script type="text/javascript">
+   var app=new Vue({
+       el:'#app',
+       data:{
+           msg:'',
+           msgkeyup:1
+       },
+       methods:{
+           onkeyup:function(){
+               this.msgkeyup=this.msgkeyup+1
+           }
+       }
+   })
+   </script>
+</body>
+</html>
+

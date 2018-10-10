@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+ <div id="demo">{{fullName}}</div>
+  
+ <script type="text/javascript">
+ var vm=new Vue({
+     el:'#demo',
+     data:{
+         firstName:'wu',
+         lastName:'zong',
+         fullName:'wu zong'
+     }
+ })
+ vm.$watch ('firstName',function(val){
+    this.fullName = val+''+this.lastName
+ })
+ vm.$watch ('lastName',function(val){
+    this.fullName =this.firstName+''+val
+ })  
+ </script>
+</body>
+</html>

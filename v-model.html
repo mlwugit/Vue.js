@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>v-model</h1> 
+   <hr>
+   <div id="app">
+       <p>原始文本信息： {{message}}</p>
+       <h3>文本框</h3>
+       <p>v-model:<input type="text" v-model="message"></p>
+       <hr/>
+    <h3>单选按钮</h3>
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for='one'>{{One}}</label>
+    <br>
+    <input type="radio" id="you" value="You" v-model="picked">
+    <label for="you">{{You}}</label>
+    <br>
+    <span>Picked:{{picked}}</span>
+    <h3>多个复选框，绑定到同一个数组</h3>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+   <h3>选择框</h3>
+   <select v-model="selected">
+     <option disabled value="">请选择</option>
+     <option>A</option>
+     <option>B</option>
+     <option>C</option>
+   </select>
+   <span>Selected:{{selected}}</span>
+   <h3>用v-for渲染的动态选项</h3>
+   <select v-model="selected">
+    <option v-for="option in options" v-bind:value="option.value">
+        {{option.text}}
+    </option>
+   </select>
+   <span>Selected:{{selected}}</span>
+</div>
+   <script type="text/javascript">
+   var app=new Vue({
+       el:'#app',
+       data:{
+           message:'hello world!',
+           checkedNames:[],
+           picked:'',
+           selected:'',
+           selected:'banana',
+           options:[
+               {text:'yello',value:'banana'},
+               {text:'pink',value:'peach'},
+               {text:'red',value:'apple'}
+           ]
+       },
+    //    methods:{
+    //        onkeyup:function(){
+    //            this.msgkeyup=this.msgkeyup+1
+    //        }
+    //    }
+   })
+   </script>
+</body>
+</html>
